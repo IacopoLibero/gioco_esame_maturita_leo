@@ -17,6 +17,6 @@
     "react-qr-code": "^2.0.12"
   },
   "engines": {
-    "node": ">=18"
+    "node": "20.x"
   }
 }
