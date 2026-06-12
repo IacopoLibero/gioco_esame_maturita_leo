@@ -22,36 +22,36 @@ export async function POST(request) {
     return NextResponse.json({ error: 'roomCode mancante' }, { status: 400 })
   }
 
-  const room = getRoom(roomCode)
+  // restart creates a new room — handle before the getRoom check
+  if (type === 'restart') {
+    const newRoom = await restartWithNewRoom(roomCode)
+    return NextResponse.json(serializeState(newRoom, null))
+  }
+
+  const room = await getRoom(roomCode)
   if (!room) {
-    return NextResponse.json({ error: 'Stanza non trovata. Il gioco potrebbe essere scaduto.' }, { status: 404 })
+    return NextResponse.json(
+      { error: 'Stanza non trovata. Il gioco potrebbe essere scaduto.' },
+      { status: 404 }
+    )
   }
 
   switch (type) {
     case 'join': {
       if (!deviceId) return NextResponse.json({ error: 'deviceId mancante' }, { status: 400 })
-      phoneJoin(room, deviceId)
-      return NextResponse.json(serializeState(room, deviceId))
+      const updated = await phoneJoin(room, deviceId)
+      return NextResponse.json(serializeState(updated, deviceId))
     }
 
     case 'advance': {
-      advance(room)
-      return NextResponse.json(serializeState(room, null))
-    }
-
-    case 'restart': {
-      const newRoom = restartWithNewRoom(roomCode)
-      return NextResponse.json(serializeState(newRoom, null))
+      const updated = await advance(room)
+      return NextResponse.json(serializeState(updated, null))
     }
 
     case 'answer': {
       if (!deviceId) return NextResponse.json({ error: 'deviceId mancante' }, { status: 400 })
-      const ok = submitAnswer(room, deviceId, body.choiceIndex)
-      if (!ok) {
-        // Either already answered or invalid — still return current state (not an error)
-        return NextResponse.json(serializeState(room, deviceId))
-      }
-      return NextResponse.json(serializeState(room, deviceId))
+      const updated = await submitAnswer(room, deviceId, body.choiceIndex)
+      return NextResponse.json(serializeState(updated ?? room, deviceId))
     }
 
     default:
