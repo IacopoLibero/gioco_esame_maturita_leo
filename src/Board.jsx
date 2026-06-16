@@ -194,6 +194,7 @@ function PlayingScreen({ state, onAdvance, onRestart, error }) {
 
           <p className="board-story__text">{level.text1}</p>
           <p className="board-story__text">{level.text2}</p>
+          {level.text3 && <p className="board-story__text">{level.text3}</p>}
 
           <div className="tags">
             {level.tags.map(t => <span key={t} className="tag">{t}</span>)}

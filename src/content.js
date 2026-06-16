@@ -65,6 +65,7 @@ export const levels = [
     phase: 'Partecipazione',
     text1: 'In quinta Leonardo decide di esporsi: si candida come rappresentante di istituto, entra in un\'organizzazione politica giovanile e partecipa alla Giornata di formazione a Montecitorio. Non osserva più soltanto la vita pubblica: sceglie di entrarci, conoscerla da vicino e assumersi una responsabilità visibile.',
     text2: 'A questa crescita si affianca una quest multipla: Giochi della Chimica, Campionati italiani di Fisica – gara di secondo livello, e Olimpiadi di Matematica. Sono prove che allenano rigore logico, problem solving e resistenza mentale, come serie diverse di uno stesso allenamento.',
+    text3: 'In quinta Leonardo compie anche una scelta silenziosa ma concreta: si iscrive al registro dei donatori di midollo osseo. È un gesto che non porta visibilità, ma che ha un impatto reale sulla vita di altre persone.',
     tags: ['Rappresentanza', 'Democrazia', 'Problem solving', 'Rigore logico'],
     question: 'Che ruolo hanno partecipazione, rappresentanza e competizioni nella crescita di uno studente?',
     choices: [
