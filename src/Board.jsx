@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import QRCode from 'react-qr-code'
-import { ArrowRight, RotateCcw, HelpCircle, Clock, Smartphone, Users } from 'lucide-react'
+import { ArrowRight, RotateCcw, HelpCircle, Clock, Smartphone, Users, Quote } from 'lucide-react'
 import LogoIcon from './LogoIcon'
 import { useGameState } from './useGameState'
 import { levels } from './content'
@@ -59,7 +59,7 @@ export default function Board() {
     )
   }
   if (state.status === 'ended') {
-    return <EndedScreen onRestart={handleRestart} />
+    return <EndedScreen />
   }
   return (
     <PlayingScreen
@@ -271,7 +271,32 @@ function PlayingScreen({ state, onAdvance, onRestart, error }) {
 
 // ─── Ended screen ─────────────────────────────────────────────────────────────
 
-function EndedScreen({ onRestart }) {
+function EndedScreen() {
+  const [showFinal, setShowFinal] = useState(false)
+
+  if (showFinal) {
+    return (
+      <div className="board-ended board-ended--fullscreen">
+          <article className="panel board-ended__card board-ended__card--quote">
+            <Quote size={40} color="var(--color-accent)" strokeWidth={1.5} />
+            <blockquote className="board-gramsci board-gramsci--large">
+              <p>
+                Odio gli indifferenti.<br />
+                L&apos;indifferenza è abulia,<br />
+                è parassitismo,<br />
+                è vigliaccheria,<br />
+                Non è vita.<br />
+                L&apos;indifferenza è il peso morto della storia.<br />
+                È la materia bruta che strozza l&apos;intelligenza.<br />
+                Perciò odio gli indifferenti.
+              </p>
+              <footer>— A. Gramsci</footer>
+            </blockquote>
+          </article>
+      </div>
+    )
+  }
+
   return (
     <div className="board-layout">
       <BoardTopBar />
@@ -287,8 +312,8 @@ function EndedScreen({ onRestart }) {
           <p className="board-ended__text">
             Il premio finale non è soltanto il voto, ma la consapevolezza di chi si è diventati.
           </p>
-          <button className="btn btn--primary" onClick={onRestart} style={{ display: 'flex', alignItems: 'center', gap: '.5rem' }}>
-            <RotateCcw size={16} /> Ricomincia la campagna
+          <button className="btn btn--primary" onClick={() => setShowFinal(true)} style={{ display: 'flex', alignItems: 'center', gap: '.5rem' }}>
+            Fine <ArrowRight size={18} />
           </button>
         </article>
       </div>

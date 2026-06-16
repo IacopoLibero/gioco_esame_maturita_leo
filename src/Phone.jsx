@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect, useRef } from 'react'
-import { Zap, CheckCircle, Trophy, RefreshCw } from 'lucide-react'
+import { Zap, CheckCircle, Quote, RefreshCw } from 'lucide-react'
 import LogoIcon from './LogoIcon'
 import { useGameState } from './useGameState'
 import { levels } from './content'
@@ -135,7 +135,10 @@ function WaitingScreen() {
       </div>
       <h2 className="phone-waiting__title">Sei dentro.</h2>
       <p className="phone-waiting__subtitle">
-        Aspetta che la lavagna avvii il gioco. La prima domanda arriverà subito.
+        "L'unica costante della vita è il cambiamento"
+      </p>
+      <p className="phone-waiting__quote-author">
+        — Buddha
       </p>
       <div className="pulse-dot">
         <span /><span /><span />
@@ -206,11 +209,18 @@ function AnsweredScreen({ choiceText }) {
 function EndedScreen() {
   return (
     <div className="phone-ended">
-      <Trophy size={48} color="var(--color-accent)" strokeWidth={1.5} />
-      <h2 className="phone-ended__title">Campagna completata.</h2>
+      <Quote size={48} color="var(--color-accent)" strokeWidth={1.5} />
       <p className="phone-ended__text">
-        Grazie per aver partecipato alla mia ultima interrogazione :)
+        Odio gli indifferenti.<br />
+        L&apos;indifferenza è abulia,<br />
+        è parassitismo,<br />
+        è vigliaccheria,<br />
+        Non è vita.<br />
+        L&apos;indifferenza è il peso morto della storia.<br />
+        È la materia bruta che strozza l&apos;intelligenza.<br />
+        Perciò odio gli indifferenti.
       </p>
+      <p className="phone-ended__author">— A. Gramsci</p>
     </div>
   )
 }

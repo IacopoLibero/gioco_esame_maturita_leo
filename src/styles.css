@@ -132,6 +132,27 @@ button { font: inherit; border: 0; background: none; color: inherit; cursor: poi
 
 .landing p { color: var(--color-text-muted); max-width: 42ch; }
 
+.landing__quote {
+  border-left: 3px solid var(--color-accent);
+  padding: .75rem 1.25rem;
+  text-align: left;
+  max-width: 36ch;
+}
+.landing__quote p {
+  font-style: italic;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+.landing__quote footer {
+  margin-top: .5rem;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
 .landing__actions { display: flex; flex-direction: column; gap: .75rem; width: 100%; max-width: 320px; }
 
 /* ─── Status bar (shared) ─────────────────────────────────────────────────── */
@@ -340,6 +361,28 @@ button { font: inherit; border: 0; background: none; color: inherit; cursor: poi
 
 .tags { display: flex; flex-wrap: wrap; gap: .5rem; margin: .25rem 0; }
 
+.board-gramsci {
+  margin: .75rem 0 0;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--color-accent);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: color-mix(in srgb, var(--color-accent) 6%, var(--color-surface-2));
+}
+.board-gramsci p {
+  font-style: italic;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+.board-gramsci footer {
+  margin-top: .5rem;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
 .board-question {
   margin-top: .5rem;
   padding: 1rem 1.25rem 1.25rem;
@@ -480,6 +523,16 @@ button { font: inherit; border: 0; background: none; color: inherit; cursor: poi
   justify-content: center;
 }
 
+.board-ended--fullscreen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface);
+  z-index: 10;
+}
+
 .board-ended__card {
   padding: clamp(2rem, 5vw, 4rem) clamp(2rem, 6vw, 5rem);
   max-width: 680px;
@@ -502,6 +555,26 @@ button { font: inherit; border: 0; background: none; color: inherit; cursor: poi
 }
 
 .board-ended__text { color: var(--color-text-muted); font-size: var(--text-lg); line-height: 1.7; max-width: 52ch; }
+
+.board-gramsci--large {
+  border: none;
+  background: none;
+  padding: 0;
+  text-align: center;
+}
+.board-gramsci--large p {
+  font-size: var(--text-xl);
+  color: var(--color-text);
+  line-height: 1.9;
+}
+.board-gramsci--large footer {
+  margin-top: .75rem;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
 
 /* ─── PHONE ──────────────────────────────────────────────────────────────── */
 
@@ -709,13 +782,23 @@ button { font: inherit; border: 0; background: none; color: inherit; cursor: poi
   padding: 2rem 1rem;
 }
 
-.phone-ended__title {
-  font-family: var(--font-display);
-  font-size: var(--text-2xl);
-  line-height: 1;
+
+.phone-ended__text {
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+  max-width: 32ch;
+  font-style: italic;
+  line-height: 1.7;
+  text-align: left;
 }
 
-.phone-ended__text { color: var(--color-text-muted); font-size: var(--text-lg); max-width: 28ch; }
+.phone-ended__author {
+  color: var(--color-accent);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
 
 /* ── Error & connecting states ── */
 .state-screen {
