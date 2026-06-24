@@ -33,10 +33,10 @@ export const levels = [
     years: 'Quarta superiore',
     title: 'La svolta scientifico-professionale',
     phase: 'Scienza applicata',
-    text1: 'Con il FSL Dermosfera, Leonardo lavora in gruppo alla realizzazione di Cannabliss Care, una linea di cosmetici a base di CBD pensata per pelle, igiene, capelli e sport. Il progetto richiede organizzazione, divisione dei ruoli, attenzione al target e cura del packaging.',
+    text1: 'Con la FSL Dermosfera, Leonardo lavora in gruppo alla realizzazione di Cannabliss Care, una linea di cosmetici a base di CBD pensata per pelle, igiene, capelli e sport. Il progetto richiede organizzazione, divisione dei ruoli, attenzione al target e cura del packaging.',
     text2: 'Qui la scienza esce dal quaderno ed entra nella vita concreta delle persone. Chimica, osservazione e progettazione si intrecciano con il mondo del lavoro: non più solo teoria, ma idee da rendere comprensibili, utili e presentabili.',
     tags: ['Teamwork', 'Progettazione', 'Target', 'Packaging'],
-    question: 'Quali competenze trasversali riconoscete in un\'esperienza FSL di questo tipo?',
+    question: 'Quali competenze trasversali riconoscete in un\'esperienza FSL di tipo scientifico/commerciale?',
     choices: [
       'Collaborazione e suddivisione efficace dei ruoli.',
       'Capacità di collegare teoria scientifica e bisogni reali.',
